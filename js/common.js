@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Set header title beside logo
   const headerTitle = document.getElementById("headerTitle");
-  if (headerTitle && config.headerTitle) headerTitle.textContent = `Cosmic Chutney - ${config.headerTitle}`;
+  if (headerTitle && config.headerTitle) {
+    headerTitle.textContent = `Cosmic Chutney - ${config.headerTitle}`;
+  }
 
   // Load the menu HTML
   fetch("https://supradeepbokkasum.github.io/cosmicchutney-assets/html/menu.html")
@@ -23,8 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Failed to load menu:", err);
     });
 });
-
-
 
 function toggleMenu() {
   const menu = document.getElementById('menu');
@@ -46,29 +46,3 @@ function loadPage(url) {
     iframe.src = url;
   }
 }
-
-// Load the menu from external file
-function loadMenu() {
-  const container = document.getElementById("menu-container");
-  if (!container) return;
-
-  // ✅ CHANGE THIS to the full URL if using shared GitHub repo
-  const menuUrl = "https://supradeepbokkasum.github.io/cosmicchutney-assets/html/menu.html";
-
-  fetch(menuUrl)
-    .then((res) => {
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return res.text();
-    })
-    .then((html) => {
-      container.innerHTML = html;
-    })
-    .catch((err) => {
-      console.error("Failed to load menu:", err);
-      container.innerHTML = "<div style='color:red;'>Failed to load menu</div>";
-    });
-}
-
-// Run when DOM is ready
-document.addEventListener("DOMContentLoaded", loadMenu);
-
