@@ -25,7 +25,7 @@ function loadMenu() {
   if (!container) return;
 
   // ✅ CHANGE THIS to the full URL if using shared GitHub repo
-  const menuUrl = "/assets/common/html/menu.html";
+  const menuUrl = "https://supradeepbokkasum.github.io/cosmicchutney-assets/html/menu.html";
 
   fetch(menuUrl)
     .then((res) => {
