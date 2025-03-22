@@ -46,12 +46,13 @@ body {
   height: 100%;
   width: 250px;
   background: #34495e;
-  padding: 15px;
+  padding: 60px 15px 15px; /* 👈 Add top padding to push menu content down */
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
   color: white;
   z-index: 1000;
 }
+
 
 .menu.show {
   transform: translateX(0);
@@ -59,7 +60,7 @@ body {
 
 .menu ul {
   list-style: none;
-  padding: 60px 0 0 0; /* 👈 Pushes content down below menu button */
+  padding: 0; /* 👈 remove conflicting padding */
   margin: 0;
 }
 
