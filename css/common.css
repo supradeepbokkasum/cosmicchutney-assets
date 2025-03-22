@@ -59,7 +59,8 @@ body {
 
 .menu ul {
   list-style: none;
-  padding: 0;
+  padding: 60px 0 0 0; /* 👈 Pushes content down below menu button */
+  margin: 0;
 }
 
 .menu ul li {
