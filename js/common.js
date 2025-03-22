@@ -24,6 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(err => {
       console.error("Failed to load menu:", err);
     });
+
+  // Initialize form handlers
+  handleFormSubmit("contactForm", "contactStatus", "https://formspree.io/f/xaneoedq");
+  handleFormSubmit("ideaForm", "ideaStatus", "https://formspree.io/f/xdkegelk");
 });
 
 function toggleMenu() {
@@ -45,4 +49,43 @@ function loadPage(url) {
   if (iframe) {
     iframe.src = url;
   }
+}
+
+function openModal(id) {
+  document.getElementById(id).style.display = "block";
+}
+
+function closeModal(id) {
+  document.getElementById(id).style.display = "none";
+}
+
+// Close modal on outside click
+window.addEventListener("click", function(event) {
+  if (event.target.classList.contains("modal")) {
+    event.target.style.display = "none";
+  }
+});
+
+function handleFormSubmit(formId, statusId, endpoint) {
+  const form = document.getElementById(formId);
+  const status = document.getElementById(statusId);
+  if (!form || !status) return;
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    const res = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    if (res.ok) {
+      status.textContent = "✅ Submitted successfully!";
+      form.reset();
+    } else {
+      status.textContent = "❌ Submission failed. Please try again.";
+    }
+  });
 }
