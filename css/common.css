@@ -41,11 +41,11 @@ body {
   color: white;
   text-align: center;
   padding: 10px;
+  font-size: 13px;
   position: fixed;
   bottom: 0;
   width: 100%;
   z-index: 1000;
-  font-size: 13px;
 }
 
 /* ✅ Menu */
@@ -180,7 +180,6 @@ body {
   .ad-sidebar {
     display: none;
   }
-
   .content {
     margin-right: 0;
     width: calc(100% - 250px);
@@ -195,12 +194,19 @@ body {
 
   .content-wrapper {
     flex-direction: column;
-    margin-left: 0;
+    margin: 70px 0 50px 0;
+    height: auto;
   }
 
   .content {
-    margin-left: 0;
+    margin: 0;
     width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+
+  .iframe-container {
+    height: calc(100vh - 120px);
   }
 }
 
