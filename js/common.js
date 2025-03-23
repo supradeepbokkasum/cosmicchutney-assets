@@ -41,8 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function toggleMenu() {
   const menu = document.getElementById('menu');
-  if (menu) {
+  const backdrop = document.getElementById('menuBackdrop');
+  if (menu && backdrop) {
     menu.classList.toggle('show');
+    backdrop.classList.toggle('show');
   }
 }
 
