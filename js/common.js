@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Load the menu HTML
-  fetch("https://supradeepbokkasum.github.io/cosmicchutney-assets/html/menu.html")
+  fetch("https://assets.cosmicchutney.space/html/menu.html")
     .then(res => res.text())
     .then(html => {
       const menuContainer = document.getElementById("menu-container");
