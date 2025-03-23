@@ -267,3 +267,16 @@ body {
   margin-top: 10px;
   font-size: 0.9rem;
 }
+
+.menu-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 900;
+}
+
+.menu.show ~ #menuBackdrop {
+  display: block;
+}
+
