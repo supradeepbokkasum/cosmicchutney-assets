@@ -15,15 +15,26 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Load the menu HTML
-  fetch("https://assets.cosmicchutney.space/html/menu.html")
-    .then(res => res.text())
-    .then(html => {
-      const menuContainer = document.getElementById("menu-container");
-      if (menuContainer) menuContainer.innerHTML = html;
-    })
-    .catch(err => {
-      console.error("Failed to load menu:", err);
-    });
+// Load the menu HTML
+fetch("https://assets.cosmicchutney.space/html/menu.html")
+  .then(res => res.text())
+  .then(html => {
+    const menuContainer = document.getElementById("menu-container");
+    if (menuContainer) {
+      menuContainer.innerHTML = html;
+
+      // Attach event listeners after insertion
+      const backdrop = document.getElementById("menuBackdrop");
+      if (backdrop) backdrop.addEventListener("click", toggleMenu);
+
+      const menu = document.getElementById("menu");
+      if (menu) menu.addEventListener("click", collapseMenu);
+    }
+  })
+  .catch(err => {
+    console.error("Failed to load menu:", err);
+  });
+
 
   // Load modals HTML
   fetch("https://assets.cosmicchutney.space/html/common-modals.html")
