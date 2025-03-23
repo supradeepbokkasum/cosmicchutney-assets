@@ -25,6 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Failed to load menu:", err);
     });
 
+  // Load modals HTML
+  fetch("https://assets.cosmicchutney.space/html/common-modals.html")
+    .then(res => res.text())
+    .then(html => {
+      const modalContainer = document.getElementById("modal-container");
+      if (modalContainer) modalContainer.innerHTML = html;
+    })
+    .catch(err => console.error("Failed to load modals:", err));
+
   // Initialize form handlers
   handleFormSubmit("contactForm", "contactStatus", "https://formspree.io/f/xaneoedq");
   handleFormSubmit("ideaForm", "ideaStatus", "https://formspree.io/f/xdkegelk");
