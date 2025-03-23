@@ -6,12 +6,12 @@ body {
   font-family: 'Inter', sans-serif;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   background: #f8f9fa;
   color: #333;
   overflow-x: hidden;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 /* ✅ Header */
@@ -41,11 +41,11 @@ body {
   color: white;
   text-align: center;
   padding: 10px;
-  font-size: 13px;
   position: fixed;
   bottom: 0;
   width: 100%;
   z-index: 1000;
+  font-size: 13px;
 }
 
 /* ✅ Menu */
@@ -126,50 +126,64 @@ body {
   border-radius: 5px;
 }
 
-/* ✅ Layout Wrappers */
-.content-wrapper {
-  display: flex;
-  flex-grow: 1;
-  margin-top: 70px;
-  padding: 0;
-  min-height: calc(100vh - 120px);
-}
-
-.content {
-  flex-grow: 1;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 250px;
-  margin-right: 300px;
-}
-
-.iframe-container {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
+/* ✅ Ad Sidebar */
 .ad-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
   width: 300px;
   background: #ecf0f1;
   padding: 20px;
   color: #2c3e50;
   text-align: center;
   font-weight: bold;
-  display: block;
 }
 
-/* ✅ Responsive Layouts */
-@media (max-width: 1200px) {
+/* ✅ Main Content */
+.content-wrapper {
+  display: flex;
+  flex-grow: 1;
+  margin-top: 70px;
+  padding: 0;
+  height: calc(100vh - 120px);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  padding: 0;
+  height: 100%;
+  max-width: none;
+  margin-left: 250px;
+  margin-right: 300px;
+  overflow: hidden;
+}
+
+.iframe-container {
+  width: 100%;
+  height: 100%;
+  border: none;
+  overflow: auto;
+}
+
+/* ✅ Responsive: Hide ad on small screens */
+@media (max-width: 1024px) {
   .ad-sidebar {
     display: none;
   }
+
   .content {
     margin-right: 0;
+    width: calc(100% - 250px);
   }
 }
 
@@ -178,31 +192,16 @@ body {
     padding: 10px;
     font-size: 14px;
   }
-  .menu {
-    width: 100%;
-    padding-top: 60px;
-  }
+
   .content-wrapper {
     flex-direction: column;
     margin-left: 0;
   }
+
   .content {
-    margin: 0;
+    margin-left: 0;
     width: 100%;
   }
-}
-
-/* ✅ Menu Backdrop */
-.menu-backdrop {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 900;
-}
-
-.menu.show ~ #menuBackdrop {
-  display: block;
 }
 
 /* ✅ Modals */
