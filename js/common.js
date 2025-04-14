@@ -126,29 +126,23 @@ introScript.onload = () => {
     const introDiv = document.createElement("div");
     introDiv.id = "toolIntro";
 
-    // ✨ Slim, clean styling
-    introDiv.style.margin = "12px auto 8px";
-    introDiv.style.padding = "0";
-    introDiv.style.maxWidth = "720px";
-    introDiv.style.fontSize = "0.92rem";
-    introDiv.style.color = "#334155"; // slate-700
-    introDiv.style.lineHeight = "1.4";
-    introDiv.style.borderLeft = "3px solid #0f172a";
-    introDiv.style.paddingLeft = "10px";
+    // ✨ Ultra-minimal styling
+    introDiv.style.fontSize = "0.95rem";
+    introDiv.style.color = "#475569";
+    introDiv.style.margin = "10px auto 0";
+    introDiv.style.maxWidth = "960px";
+    introDiv.style.textAlign = "center";
 
-    introDiv.innerHTML = `
-      <div style="font-weight: 600; font-size: 1rem;">${intro.title}</div>
-      <div>${intro.description}</div>
-    `;
+    introDiv.textContent = intro.description;
 
-    const target = document.querySelector(".content-wrapper") || document.getElementById("pageFrame");
-    if (target && target.parentNode) {
-      target.parentNode.insertBefore(introDiv, target);
+    // Insert it directly after the header
+    const header = document.querySelector(".header");
+    if (header && header.parentNode) {
+      header.parentNode.insertBefore(introDiv, header.nextSibling);
     }
-  } else {
-    console.warn("No intro found for subdomain:", subdomain);
   }
 };
+
 
 
 document.head.appendChild(introScript);
