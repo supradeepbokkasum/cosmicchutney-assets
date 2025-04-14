@@ -111,3 +111,38 @@ function handleFormSubmit(formId, statusId, endpoint) {
     }
   });
 }
+
+// Dynamically load tool-intros.js and insert the toolIntro div after it's ready
+const introScript = document.createElement("script");
+introScript.src = "https://assets.cosmicchutney.space/tool-intros.js";
+introScript.defer = true;
+
+introScript.onload = () => {
+  const subdomain = window.location.hostname.split('.')[0];
+  const intro = window.TOOL_INTROS?.[subdomain];
+
+  if (intro) {
+    const introDiv = document.createElement("div");
+    introDiv.id = "toolIntro";
+    introDiv.style.padding = "20px";
+    introDiv.style.maxWidth = "720px";
+    introDiv.style.margin = "60px auto 20px";
+    introDiv.style.position = "relative";
+    introDiv.style.zIndex = "1";
+
+    introDiv.innerHTML = `
+      <h1 style="font-size: 1.5rem; margin-bottom: 10px;">${intro.title}</h1>
+      <p style="color: #4b5563; font-size: 1rem;">${intro.description}</p>
+    `;
+
+    const target = document.querySelector(".content-wrapper") || document.getElementById("pageFrame");
+    if (target && target.parentNode) {
+      target.parentNode.insertBefore(introDiv, target);
+    }
+  } else {
+    console.warn("No intro found for subdomain:", subdomain);
+  }
+};
+
+document.head.appendChild(introScript);
+
