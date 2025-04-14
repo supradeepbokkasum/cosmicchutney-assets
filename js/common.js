@@ -126,16 +126,15 @@ introScript.onload = () => {
     const introDiv = document.createElement("div");
     introDiv.id = "toolIntro";
 
-    // ✨ Ultra-minimal styling
+    // One-liner style, but with top margin to clear the sticky/fixed header
     introDiv.style.fontSize = "0.95rem";
     introDiv.style.color = "#475569";
-    introDiv.style.margin = "10px auto 0";
+    introDiv.style.margin = "60px auto 0"; // key fix!
     introDiv.style.maxWidth = "960px";
     introDiv.style.textAlign = "center";
 
     introDiv.textContent = intro.description;
 
-    // Insert it directly after the header
     const header = document.querySelector(".header");
     if (header && header.parentNode) {
       header.parentNode.insertBefore(introDiv, header.nextSibling);
@@ -143,8 +142,7 @@ introScript.onload = () => {
   }
 };
 
-
-
 document.head.appendChild(introScript);
+
 
 
