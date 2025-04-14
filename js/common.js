@@ -126,24 +126,18 @@ introScript.onload = () => {
     const introDiv = document.createElement("div");
     introDiv.id = "toolIntro";
 
-    // Minimal, elegant inline styling
-    introDiv.style.padding = "12px 16px";
-    introDiv.style.maxWidth = "680px";
-    introDiv.style.margin = "24px auto";
-    introDiv.style.fontSize = "0.95rem";
-    introDiv.style.lineHeight = "1.5";
-    introDiv.style.color = "#475569"; // slate-600
-    introDiv.style.background = "#f9fafb"; // light tone
-    introDiv.style.borderLeft = "4px solid #0f172a";
-    introDiv.style.borderRadius = "6px";
-    introDiv.style.boxShadow = "0 1px 2px rgba(0, 0, 0, 0.04)";
-    introDiv.style.position = "relative";
-    introDiv.style.zIndex = "1";
+    // ✨ Slim, clean styling
+    introDiv.style.margin = "12px auto 8px";
+    introDiv.style.padding = "0";
+    introDiv.style.maxWidth = "720px";
+    introDiv.style.fontSize = "0.92rem";
+    introDiv.style.color = "#334155"; // slate-700
+    introDiv.style.lineHeight = "1.4";
+    introDiv.style.borderLeft = "3px solid #0f172a";
+    introDiv.style.paddingLeft = "10px";
 
     introDiv.innerHTML = `
-      <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 4px; color: #1e293b;">
-        ${intro.title}
-      </div>
+      <div style="font-weight: 600; font-size: 1rem;">${intro.title}</div>
       <div>${intro.description}</div>
     `;
 
@@ -155,6 +149,7 @@ introScript.onload = () => {
     console.warn("No intro found for subdomain:", subdomain);
   }
 };
+
 
 document.head.appendChild(introScript);
 
