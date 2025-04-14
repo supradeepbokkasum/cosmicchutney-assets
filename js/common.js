@@ -112,6 +112,7 @@ function handleFormSubmit(formId, statusId, endpoint) {
   });
 }
 
+
 // Dynamically load tool-intros.js and insert the toolIntro div after it's ready
 const introScript = document.createElement("script");
 introScript.src = "https://assets.cosmicchutney.space/js/tool-intros.js";
@@ -124,15 +125,26 @@ introScript.onload = () => {
   if (intro) {
     const introDiv = document.createElement("div");
     introDiv.id = "toolIntro";
-    introDiv.style.padding = "20px";
-    introDiv.style.maxWidth = "720px";
-    introDiv.style.margin = "60px auto 20px";
+
+    // Minimal, elegant inline styling
+    introDiv.style.padding = "12px 16px";
+    introDiv.style.maxWidth = "680px";
+    introDiv.style.margin = "24px auto";
+    introDiv.style.fontSize = "0.95rem";
+    introDiv.style.lineHeight = "1.5";
+    introDiv.style.color = "#475569"; // slate-600
+    introDiv.style.background = "#f9fafb"; // light tone
+    introDiv.style.borderLeft = "4px solid #0f172a";
+    introDiv.style.borderRadius = "6px";
+    introDiv.style.boxShadow = "0 1px 2px rgba(0, 0, 0, 0.04)";
     introDiv.style.position = "relative";
     introDiv.style.zIndex = "1";
 
     introDiv.innerHTML = `
-      <h1 style="font-size: 1.5rem; margin-bottom: 10px;">${intro.title}</h1>
-      <p style="color: #4b5563; font-size: 1rem;">${intro.description}</p>
+      <div style="font-weight: 600; font-size: 1.1rem; margin-bottom: 4px; color: #1e293b;">
+        ${intro.title}
+      </div>
+      <div>${intro.description}</div>
     `;
 
     const target = document.querySelector(".content-wrapper") || document.getElementById("pageFrame");
@@ -145,4 +157,5 @@ introScript.onload = () => {
 };
 
 document.head.appendChild(introScript);
+
 
