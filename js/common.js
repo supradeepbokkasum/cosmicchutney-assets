@@ -114,7 +114,7 @@ function handleFormSubmit(formId, statusId, endpoint) {
 
 // Dynamically load tool-intros.js and insert the toolIntro div after it's ready
 const introScript = document.createElement("script");
-introScript.src = "https://assets.cosmicchutney.space/tool-intros.js";
+introScript.src = "https://assets.cosmicchutney.space/js/tool-intros.js";
 introScript.defer = true;
 
 introScript.onload = () => {
