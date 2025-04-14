@@ -1,5 +1,5 @@
 // tool-intros.js
-const TOOL_INTROS = {
+window.TOOL_INTROS = {
   "jsonparser": {
     title: "JSON Parser",
     description: "Paste your raw JSON and view it in a beautifully formatted tree. Perfect for debugging APIs and checking nested structures."
