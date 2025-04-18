@@ -127,11 +127,11 @@ introScript.onload = () => {
     introDiv.id = "toolIntro";
 
     // One-liner style, but with top margin to clear the sticky/fixed header
-    introDiv.style.fontSize = "0.95rem";
-    introDiv.style.color = "#475569";
-    introDiv.style.margin = "60px auto 0"; // key fix!
-    introDiv.style.maxWidth = "960px";
-    introDiv.style.textAlign = "center";
+    //introDiv.style.fontSize = "0.95rem";
+   // introDiv.style.color = "#475569";
+  //  introDiv.style.margin = "60px auto 0"; // key fix!
+  //  introDiv.style.maxWidth = "960px";
+  //  introDiv.style.textAlign = "center";
 
     introDiv.textContent = intro.description;
 
