@@ -144,7 +144,7 @@ body {
 .content-wrapper {
   display: flex;
   flex-grow: 1;
-  margin-top: 70px;
+  margin-top: 50px;
   padding: 0;
   height: calc(100vh - 120px);
   justify-content: center;
