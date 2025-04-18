@@ -129,7 +129,7 @@ introScript.onload = () => {
     // Style for tool intro inside the content area
     introDiv.style.fontSize = "0.95rem";
     introDiv.style.color = "#475569";
-    introDiv.style.margin = "0 auto 20px";  // spacing below, not above
+    introDiv.style.margin = "0 auto 0px";  // spacing below, not above
     introDiv.style.maxWidth = "960px";
     introDiv.style.textAlign = "center";
 
