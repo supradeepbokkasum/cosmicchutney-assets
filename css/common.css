@@ -156,7 +156,8 @@ body {
 .content {
   flex-grow: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;  /* 👈 fix: align from top */
   align-items: center;
   background: white;
   border-radius: 8px;
@@ -167,6 +168,7 @@ body {
   margin-right: 300px;
   overflow: hidden;
 }
+
 
 .iframe-container {
   width: 100%;
