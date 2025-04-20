@@ -50,7 +50,7 @@ fetch("https://assets.cosmicchutney.space/html/menu.html")
   handleFormSubmit("ideaForm", "ideaStatus", "https://formspree.io/f/xdkegelk");
 
   // ✅ Inject the ad script
-  injectAdScript();
+  // injectAdScript();
 });
 
 function injectAdScript() {
