@@ -48,7 +48,23 @@ fetch("https://assets.cosmicchutney.space/html/menu.html")
   // Initialize form handlers
   handleFormSubmit("contactForm", "contactStatus", "https://formspree.io/f/xaneoedq");
   handleFormSubmit("ideaForm", "ideaStatus", "https://formspree.io/f/xdkegelk");
+
+  // ✅ Inject the ad script
+  injectAdScript();
 });
+
+function injectAdScript() {
+  const adContainer = document.getElementById("ad-sidebar");
+  if (!adContainer) return;
+
+  const script = document.createElement("script");
+  script.setAttribute("data-cfasync", "false");
+  script.src = "https://assets.cosmicchutney.space/js/ad_tags.js";
+  script.async = true;
+
+  adContainer.appendChild(script);
+}
+
 
 function toggleMenu() {
   const menu = document.getElementById('menu');
