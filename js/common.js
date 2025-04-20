@@ -54,9 +54,10 @@ fetch("https://assets.cosmicchutney.space/html/menu.html")
 });
 
 function injectAdScript() {
+  console.log("Injecting ad script...");
   const adContainer = document.getElementById("ad-sidebar");
   if (!adContainer) return;
-
+   console.log("Injecting ad script 2..."); 
   const script = document.createElement("script");
   script.setAttribute("data-cfasync", "false");
   script.src = "https://assets.cosmicchutney.space/js/ad_tags.js";
